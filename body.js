@@ -19,7 +19,12 @@ let props = {
 };
 
 let lg = new LayerGenerator(props);
-//let stylish = new StyleGenerator();
-//console.log(stylish);
+let stylish = new StyleGenerator();
+
+// FIXME I think this stuff comes from an esri json object.
+let layerInfo = null;
+let layer = null;
+let mapProjection = null;
+//VectorLayerModifier.modifyLayer(layerInfo, layer, mapProjection);
 
 console.log("body.js hath loaded");

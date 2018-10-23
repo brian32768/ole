@@ -1,4 +1,4 @@
-import {Attribution} from "ol";
+import {Attribution} from "ol/source/Source";
 import {get, Projection} from "ol/proj";
 import {TileArcGISRest, XYZ} from "ol/source";
 import {TileGrid} from "ol/tilegrid";
@@ -48,9 +48,12 @@ export default class LayerGenerator {
     return this._projection;
   }
   _getAttribution() {
-    return new Attribution({
+/* FIX THIS -- This is ol3 code
+     return new Attribution({
       html: this._config.copyrightText
     });
+*/
+      return '';
   }
   createArcGISRestSource() {
     return new TileArcGISRest({

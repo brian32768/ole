@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>ArcGIS REST from Capabilities example</title>
-<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-<link rel="stylesheet" href="../node_modules/ol/dist/ol.css" type="text/css">
-<script src="../node_modules/ol/dist/ol.js"></script>
-<script src="./common.js"></script>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,IE=11" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <title>ArcGIS REST from Capabilities example</title>
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+    <script src="./head.js"></script>
+
 </head>
 <body>
 <div class="container-fluid">
@@ -20,7 +32,12 @@
 
 </div>
 <script>
-(function() {
+
+  import {Map, View} from "ol";
+  import {defaults as default_controls} from "ol/control";
+  import {MousePosition} from "ol/control";
+
+  (function() {
   var map;
   document.getElementById('get-caps').addEventListener('click', function() {
     var capsUrl = document.getElementById('caps-url').value;
@@ -45,19 +62,19 @@
           var resolutions = generator.getResolutions();
           var projection = generator.getProjection();
           if (!map) {
-            map = new ol.Map({
-              controls: ol.control.defaults().extend([
-                new ol.control.MousePosition()]),
+            map = new Map({
+              controls: default_controls().extend([
+                new MousePosition()]),
               layers: [layer],
               target: 'map',
-              view: new ol.View({
+              view: new View({
                 resolutions: resolutions,
                 projection: projection
               })
             });
           } else {
             map.getLayers().clear();
-            map.setView(new ol.View({
+            map.setView(new View({
               resolutions: resolutions,
               projection: projection
             }));

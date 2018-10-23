@@ -21,23 +21,28 @@
 
 </div>
 <script>
-  var attribution = new ol.Attribution({
-    html: 'Tiles &copy; <a href="http://services.arcgisonline.com/ArcGIS/' +
-      'rest/services/World_Topo_Map/MapServer">ArcGIS</a>'
-  });
+  import {Map, View} from "ol";
+  import {Tile as TileLayer} from "ol/layer";
+  import {XYZ} from "ol/source";
+  
+// FIXME this is left over from ol3
+//  var attribution = new ol.Attribution({
+//    html: 'Tiles &copy; <a href="http://services.arcgisonline.com/ArcGIS/' +
+//      'rest/services/World_Topo_Map/MapServer">ArcGIS</a>'
+//  });
 
-  var raster = new ol.layer.Tile({
-    source: new ol.source.XYZ({
+  var raster = new TileLayer({
+    source: new XYZ({
       attributions: [attribution],
       url: 'http://server.arcgisonline.com/ArcGIS/rest/services/' +
         'World_Topo_Map/MapServer/tile/{z}/{y}/{x}'
     })
   });
 
-  var map = new ol.Map({
+  var map = new Map({
     layers: [raster],
     target: document.getElementById('map'),
-    view: new ol.View({center: [0, 0], zoom: 2})
+    view: new View({center: [0, 0], zoom: 2})
   });
 
   document.getElementById('connect').addEventListener('click', function() {
