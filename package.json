@@ -5,7 +5,7 @@
   "main": "dist/ole.js",
   "scripts": {
     "build": "",
-    "start": "parcel service --open chrome examples/layer-generator.html"
+    "start": "parcel service --open chrome index.html"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,9 @@
   },
   "homepage": "https://github.com/boundlessgeo/ole",
   "devDependencies": {
+    "babel-core": "^6.26.3"
   },
   "dependencies": {
+    "ol": "^5.2.0"
   }
 }

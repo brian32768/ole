@@ -1,4 +1,9 @@
-/* global ol */
+import {Attribution} from "ol";
+import {get, Projection} from "ol/proj";
+import {TileArcGISRest, XYZ} from "ol/source";
+import {TileGrid} from "ol/tilegrid";
+import {Tile as TileLayer} from "ol/layer";
+
 export default class LayerGenerator {
   constructor(props) {
     this._config = props.config;
@@ -35,20 +40,20 @@ export default class LayerGenerator {
   _getProjection() {
     var epsg = 'EPSG:' + this._config.spatialReference.wkid;
     var units = this._config.units === 'esriMeters' ? 'm' : 'degrees';
-    var projection = ol.proj.get(epsg) ? ol.proj.get(epsg) :
-      new ol.proj.Projection({code: epsg, units: units});
+    var projection = get(epsg) ? get(epsg) :
+      new Projection({code: epsg, units: units});
     return projection;
   }
   getProjection() {
     return this._projection;
   }
   _getAttribution() {
-    return new ol.Attribution({
+    return new Attribution({
       html: this._config.copyrightText
     });
   }
   createArcGISRestSource() {
-    return new ol.source.TileArcGISRest({
+    return new TileArcGISRest({
       url: this._url,
       attributions: [this._attribution]
     });
@@ -91,13 +96,13 @@ export default class LayerGenerator {
         tileOrigin[0] + width,
         tileOrigin[1]
       ];
-      tileGrid = new ol.tilegrid.TileGrid({
+      tileGrid = new TileGrid({
         origin: tileOrigin,
         extent: extent,
         resolutions: this._resolutions
       });
     }
-    return new ol.source.XYZ({
+    return new XYZ({
       attributions: [this._attribution],
       projection: this._projection,
       tileSize: tileSize,
@@ -107,7 +112,7 @@ export default class LayerGenerator {
     });
   }
   createLayer() {
-    var layer = new ol.layer.Tile();
+    var layer = new TileLayer();
     if (this._config.tileInfo) {
       layer.setSource(this.createXYZSource());
     } else {

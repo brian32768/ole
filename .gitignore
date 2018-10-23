@@ -1,3 +1,4 @@
 node_modules
 examples/ole-debug.js
+dist/*
 *~
