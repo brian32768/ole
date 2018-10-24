@@ -1,29 +1,38 @@
+// esri-styling.js ole examples
+//
 import {Map, View} from "ol";
 import {Tile as TileLayer, Vector as VectorLayer} from "ol/layer";
 import {XYZ, Vector as VectorSource} from "ol/source";
 import {EsriJSON} from "ol/format";
-import VectorLayerModifier from './src/VectorLayerModifier.js';
+import VectorLayerModifier from '/src/VectorLayerModifier.js';
 import {tile as TileLoader} from 'ol/loadingstrategy';
 import {createXYZ as tileCreateXYZ} from 'ol/tilegrid';
 import {get as getProjection} from 'ol/proj';
-import jquery from 'jquery/dist/jquery.min.js';
+import {Attribution, defaults as defaultControls} from "ol/control";
 
-const attribution = 'Basemap tiles &copy; <a href="http://services.arcgisonline.com/ArcGIS/' + 'rest/services/World_Topo_Map/MapServer">ArcGIS</a>';
+import $ from 'jquery/dist/jquery.min.js';
+
+// Expose the map service URL in the attribution, for convenience.
+const arcgis_attribution = 'Service credit: <a href="http://services.arcgisonline.com/ArcGIS/' + 'rest/services/World_Topo_Map/MapServer">ArcGIS</a>';
 
 var raster = new TileLayer({
     source: new XYZ({
-	attributions: [attribution],
+	attributions: [arcgis_attribution],
 	url: 'http://server.arcgisonline.com/ArcGIS/rest/services/' +
             'World_Topo_Map/MapServer/tile/{z}/{y}/{x}'
     })
 });
 
+// Create a new noncollapsible attribution control, it just displays the text.
+var attribution_control = new Attribution({
+    collapsible: false
+});
+
 var map = new Map({
     layers: [raster],
     target: 'map',
-    attributionOptions: {
-	collapsible: false
-    },
+    // This disables the default attribution control then adds the new noncollapsed one
+    controls: defaultControls({attribution: false}).extend([attribution_control]),
     view: new View({center: [0, 0], zoom: 2})
 });
 
@@ -61,7 +70,6 @@ document.getElementById('connect').addEventListener('click', function() {
     });
     var vector = new VectorLayer({
 	source: vectorSource,
-	attribution: 'Ziggy Stardust'
     });
     var styleUrl = serviceUrl + '/' + layer + '?f=json';
     $.ajax({url: styleUrl, dataType: 'jsonp', success: function(response) {
@@ -83,6 +91,7 @@ document.getElementById('connect').addEventListener('click', function() {
 		}
             });
             map.addLayer(vector);
+	    // I'd like to add or remove attributions here but so far don't know how to do that.
 	}
     }});
 });

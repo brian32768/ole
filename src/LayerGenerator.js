@@ -48,12 +48,7 @@ export default class LayerGenerator {
     return this._projection;
   }
   _getAttribution() {
-/* FIX THIS -- This is ol3 code
-     return new Attribution({
-      html: this._config.copyrightText
-    });
-*/
-      return '';
+      return new this._config.copyrightText;
   }
   createArcGISRestSource() {
     return new TileArcGISRest({

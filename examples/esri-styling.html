@@ -1,107 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>esri ArcGIS REST Feature Service styling example</title>
-<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-<link rel="stylesheet" href="../node_modules/openlayers/dist/ol.css" type="text/css">
-<script src="node_modules/openlayers/dist/ol.js"></script>
-<script src="./common.js"></script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,IE=11" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Olé styling example</title>
+    <link rel="stylesheet" href="/node_modules/ol/ol.css">
 </head>
 <body>
-<div class="container-fluid">
-
-<div class="row-fluid">
-  <div class="span12">
-    <label for="service-url">Url</label><input id="service-url" value="https://services.arcgis.com/rOo16HdIMeOBI4Mb/ArcGIS/rest/services/Drive%20from%20Salt%20and%20Straw_Points%20(5%2010%2015%20Minutes)/FeatureServer" style="width:800px"></input>
+  <h1>ArcGIS REST Feature Service styling example</h1>
+  
+  <b>Instructions:</b> Put the URL for an ESRI FeatureServer in here, select the layer number, and push "Connect".
+  If it works you should see the map zoom to the extent specified in the FeatureServer,
+  and the features should be styled to match what you'd see in ArcGIS Online (or the ESRI JSAPI).
+  <p>
+    <label for="service-url">URLl</label><input id="service-url" value="https://services.arcgis.com/rOo16HdIMeOBI4Mb/ArcGIS/rest/services/Drive%20from%20Salt%20and%20Straw_Points%20(5%2010%2015%20Minutes)/FeatureServer" style="width:800px"></input>
     <label for="layer-id">Layer</label><input id="layer-id" value="0"></input>
     <button id="connect">Connect</button>
-    <div id="map" class="map"></div>
-  </div>
-</div>
-
-</div>
-<script>
-  import {Map, View} from "ol";
-  import {Tile as TileLayer} from "ol/layer";
-  import {XYZ} from "ol/source";
+  </p>
   
-// FIXME this is left over from ol3
-//  var attribution = new ol.Attribution({
-//    html: 'Tiles &copy; <a href="http://services.arcgisonline.com/ArcGIS/' +
-//      'rest/services/World_Topo_Map/MapServer">ArcGIS</a>'
-//  });
+  <div id="map" class="map"></div>
 
-  var raster = new TileLayer({
-    source: new XYZ({
-      attributions: [attribution],
-      url: 'http://server.arcgisonline.com/ArcGIS/rest/services/' +
-        'World_Topo_Map/MapServer/tile/{z}/{y}/{x}'
-    })
-  });
-
-  var map = new Map({
-    layers: [raster],
-    target: document.getElementById('map'),
-    view: new View({center: [0, 0], zoom: 2})
-  });
-
-  document.getElementById('connect').addEventListener('click', function() {
-    var serviceUrl = document.getElementById('service-url').value;
-    var layer = document.getElementById('layer-id').value;
-    var esrijsonFormat = new ol.format.EsriJSON();
-    var vectorSource = new ol.source.Vector({
-      loader: function(extent, resolution, projection) {
-        var url = serviceUrl + '/' + layer + '/query/?f=json&' +
-          'returnGeometry=true&spatialRel=esriSpatialRelIntersects&geometry=' +
-          encodeURIComponent('{"xmin":' + extent[0] + ',"ymin":' +
-            extent[1] + ',"xmax":' + extent[2] + ',"ymax":' + extent[3] +
-            ',"spatialReference":{"wkid":102100}}') +
-          '&geometryType=esriGeometryEnvelope&inSR=102100&outFields=*' +
-          '&outSR=102100';
-        $.ajax({url: url, dataType: 'jsonp', success: function(response) {
-          if (response.error) {
-            alert(response.error.message + '\n' +
-              response.error.details.join('\n'));
-          } else {
-            // dataProjection will be read from document
-            var features = esrijsonFormat.readFeatures(response, {
-              featureProjection: projection
-            });
-            if (features.length > 0) {
-              vectorSource.addFeatures(features);
-            }
-          }
-        }});
-      },
-      strategy: ol.loadingstrategy.tile(ol.tilegrid.createXYZ({
-        tileSize: 512
-      }))
-    });
-    var vector = new ol.layer.Vector({
-      source: vectorSource
-    });
-    var styleUrl = serviceUrl + '/' + layer + '?f=json';
-    $.ajax({url: styleUrl, dataType: 'jsonp', success: function(response) {
-      if (response.error) {
-        alert(response.error.message + '\n' +
-          response.error.details.join('\n'));
-      } else {
-        var srs = response.extent.spatialReference.wkid;
-        var extent = [response.extent.xmin, response.extent.ymin, response.extent.xmax, response.extent.ymax];
-        if (srs === 4267) {
-          extent = ol.proj.get('EPSG:3857').getExtent();
-        }
-        map.getView().fit(extent, map.getSize());
-        ole.VectorLayerModifier.modifyLayer(response, vector, map.getView().getProjection());
-        map.getLayers().forEach(function(lyr) {
-          if (lyr instanceof ol.layer.Vector) {
-            map.removeLayer(lyr);
-          }
-        });
-        map.addLayer(vector);
-      }
-    }});
-  });
-</script>
+  <script src="/examples/esri-styling.js"></script>
 </body>
 </html>

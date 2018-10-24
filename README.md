@@ -1,32 +1,45 @@
 # Olé
 
-Integration of OpenLayers 3 and Esri ArcGIS REST services.
+This is a FORK of the Boundless project, see boundlessgeo/ole on github.
+
+Integration of OpenLayers 5 and Esri ArcGIS REST services.
 
 Provides the following functionality:
-  * translation of ArcGIS REST API styling to OpenLayers 3 styles
+  * translation of ArcGIS REST API styling to OpenLayers 5 styles
   * automatic configuration of tile and image layers from the ArcGIS REST API
 
 ## Getting started
+
+Currently I am just testing code so there is no "getting started" or build required,
+just run "npm start" or "npm startchrome".
+
     npm install
     npm run build
 
 ## Unit tests
+
+*** I don't have this working right now. ***
     npm start
-    npm test
-    http://127.0.0.1:1337/test/index.html
+    http://127.0.0.1:1234/test/index.html
 
 ## Linting
-    npm run lint
+
+*** I don't have this working right now. ***
+   npm run lint
 
 ## Examples
+
     npm start
-    http://127.0.0.1:1337/examples/
+    http://127.0.0.1:1234/
+or
+    npm run chrome
+    (starts a chrome browser for you)
 
 ## Using npm
 
 There is no package on npmjs.com but you can use a git type url for instance:
     "dependencies": {
-      "ole": "boundlessgeo/ole#v0.6.1"
+      "ole": "brian32768/ole#0.6.3"
     }
 
 ## What is supported?
@@ -48,3 +61,9 @@ There is no package on npmjs.com but you can use a git type url for instance:
 Copyright 2015 Boundless Spatial, Inc.
 
 Licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
+
+## CHANGELOG
+
+2018-10-24 Ported to run under parcel and updated to openlayers 5.
+
+

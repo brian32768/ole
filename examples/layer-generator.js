@@ -1,10 +1,11 @@
-// layer-generator.js
-
+// layer-generator.js ole examples
+//
 import {Map, View} from "ol";
 import {defaults as default_controls} from "ol/control";
 import MousePosition from "ol/control/MousePosition";
-import {LayerGenerator} from "./src";
-import jquery from 'jquery/dist/jquery.min.js';
+
+import {LayerGenerator} from "/src";
+import $ from 'jquery/dist/jquery.min.js';
 
 var map;
 
