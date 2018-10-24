@@ -1,4 +1,4 @@
-/* global ol */
+import {Style, Text, Fill, Icon, Stroke, Circle, RegularShape} from 'ol/style';
 import utils from './Util';
 
 export default class StyleGenerator {
@@ -72,9 +72,9 @@ export default class StyleGenerator {
     var rotation = utils.isDefinedAndNotNull(symbol.angle) ?
       StyleGenerator._transformAngle(symbol.angle) : undefined;
     var text = utils.isDefinedAndNotNull(symbol.text) ? symbol.text : undefined;
-    return new ol.style.Style({
-      text: new ol.style.Text({
-        fill: new ol.style.Fill({color: StyleGenerator._transformColor(symbol.color)}),
+    return new Style({
+      text: new Text({
+        fill: new Fill({color: StyleGenerator._transformColor(symbol.color)}),
         font: symbol.font.style + ' ' + symbol.font.weight + ' ' + symbol.font.size + ' px ' + symbol.font.family,
         textBaseline: symbol.verticalAlignment,
         textAlign: symbol.horizontalAlignment,
@@ -92,8 +92,8 @@ export default class StyleGenerator {
     img.src = 'data:' + symbol.contentType + ';base64, ' + symbol.imageData;
     var rotation = utils.isDefinedAndNotNull(symbol.angle) ?
       StyleGenerator._transformAngle(symbol.angle) : undefined;
-    return new ol.style.Style({
-      image: new ol.style.Icon({
+    return new Style({
+      image: new Icon({
         img: img,
         imgSize: [img.width, img.height],
         scale: width / img.width,
@@ -104,11 +104,11 @@ export default class StyleGenerator {
   /* convert an Esri Simple Fill Symbol */
   static _convertEsriSFS(symbol) {
     // there is no support in openlayers currently for fill patterns, so style is not interpreted
-    var fill = new ol.style.Fill({
+    var fill = new Fill({
       color: StyleGenerator._transformColor(symbol.color)
     });
     var stroke = symbol.outline ? StyleGenerator._convertOutline(symbol.outline) : undefined;
-    return new ol.style.Style({
+    return new Style({
       fill: fill,
       stroke: stroke
     });
@@ -128,7 +128,7 @@ export default class StyleGenerator {
       // line not visible, make color fully transparent
       color[3] = 0;
     }
-    return new ol.style.Stroke({
+    return new Stroke({
       color: color,
       lineDash: lineDash,
       width: StyleGenerator._convertPointToPixel(outline.width)
@@ -136,7 +136,7 @@ export default class StyleGenerator {
   }
   /* convert an Esri Simple Line Symbol */
   static _convertEsriSLS(symbol) {
-    return new ol.style.Style({
+    return new Style({
       stroke: StyleGenerator._convertOutline(symbol)
     });
   }
@@ -151,7 +151,7 @@ export default class StyleGenerator {
   }
   /* convert an Esri Simple Marker Symbol */
   static _convertEsriSMS(symbol) {
-    var fill = new ol.style.Fill({
+    var fill = new Fill({
       color: StyleGenerator._transformColor(symbol.color)
     });
     var stroke = symbol.outline ? StyleGenerator._convertOutline(symbol.outline) : undefined;
@@ -159,16 +159,16 @@ export default class StyleGenerator {
     var rotation = utils.isDefinedAndNotNull(symbol.angle) ?
       StyleGenerator._transformAngle(symbol.angle) : undefined;
     if (symbol.style === 'esriSMSCircle') {
-      return new ol.style.Style({
-        image: new ol.style.Circle({
+      return new Style({
+        image: new Circle({
           radius: radius,
           fill: fill,
           stroke: stroke
         })
       });
     } else if (symbol.style === 'esriSMSCross') {
-      return new ol.style.Style({
-        image: new ol.style.RegularShape({
+      return new Style({
+        image: new RegularShape({
           fill: fill,
           stroke: stroke,
           points: 4,
@@ -179,8 +179,8 @@ export default class StyleGenerator {
         })
       });
     } else if (symbol.style === 'esriSMSDiamond') {
-      return new ol.style.Style({
-        image: new ol.style.RegularShape({
+      return new Style({
+        image: new RegularShape({
           fill: fill,
           stroke: stroke,
           points: 4,
@@ -189,8 +189,8 @@ export default class StyleGenerator {
         })
       });
     } else if (symbol.style === 'esriSMSSquare') {
-      return new ol.style.Style({
-        image: new ol.style.RegularShape({
+      return new Style({
+        image: new RegularShape({
           fill: fill,
           stroke: stroke,
           points: 4,
@@ -200,8 +200,8 @@ export default class StyleGenerator {
         })
       });
     } else if (symbol.style === 'esriSMSX') {
-      return new ol.style.Style({
-        image: new ol.style.RegularShape({
+      return new Style({
+        image: new RegularShape({
           fill: fill,
           stroke: stroke,
           points: 4,
@@ -212,8 +212,8 @@ export default class StyleGenerator {
         })
       });
     } else if (symbol.style === 'esriSMSTriangle') {
-      return new ol.style.Style({
-        image: new ol.style.RegularShape({
+      return new Style({
+        image: new RegularShape({
           fill: fill,
           stroke: stroke,
           points: 3,

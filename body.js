@@ -2,7 +2,7 @@
 //
 // Code for testing Olé, an OpenLayers extension.
 
-import { LayerGenerator, StyleGenerator, VectorLayerModifier } from "./src/index";
+import { LayerGenerator, StyleGenerator, VectorLayerModifier } from "./src";
 
 let props = {
     'config' : {

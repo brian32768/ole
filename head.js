@@ -1,4 +1,4 @@
-// head.js olé
+// head.js examples for Ole
 //
-// Code for testing Olé, an OpenLayers extension.
-
+import 'ol/ol.css';
+//import './common.js';
