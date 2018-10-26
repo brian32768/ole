@@ -31,9 +31,6 @@ just run "npm start" or "npm startchrome".
 
     npm start
     http://127.0.0.1:1234/
-or
-    npm run chrome
-    (starts a chrome browser for you)
 
 ## Using npm
 

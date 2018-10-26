@@ -5,8 +5,7 @@
   "main": "dist/ole.js",
   "scripts": {
     "build": "",
-    "start":  "parcel service index.html",
-    "chrome": "parcel service --open chrome index.html"
+    "start":  "parcel service index.html --open"
   },
   "repository": {
     "type": "git",
@@ -25,7 +24,6 @@
   },
   "homepage": "https://github.com/brian32768/ole",
   "devDependencies": {
-    "babel-core": "^6.26.3",
     "lint": "^1.1.2"
   },
   "dependencies": {
