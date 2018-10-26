@@ -1,4 +1,5 @@
 // layer-generator.js ole examples
+// Most of this code was extracted from the layer-generator.html file to make debugging easier.
 //
 import {Map, View} from "ol";
 import {defaults as default_controls} from "ol/control";

@@ -1,7 +1,7 @@
 {
   "name": "ole",
-  "version": "0.6.3",
-  "description": "Library to integrate OpenLayers 5 with Esri ArcGIS Server REST API",
+  "version": "0.7.0",
+  "description": "Library to integrate OpenLayers 5 with Esri ArcGIS Server REST API. FORK of boundlessgeo/ole on github.",
   "main": "dist/ole.js",
   "scripts": {
     "build": "",
@@ -18,18 +18,17 @@
     "arcgis",
     "rest"
   ],
-  "author": "Boundless",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/boundlessgeo/ole/issues"
+    "author": "Boundless, with lots of updates by Brian H Wilson",
+    "license": "Apache-2.0",
+    "bugs": {
+	"url": "https://github.com/brian32768/ole/issues"
   },
-  "homepage": "https://github.com/boundlessgeo/ole",
+  "homepage": "https://github.com/brian32768/ole",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "lint": "^1.1.2"
   },
   "dependencies": {
-    "ol": "^5.2.0",
-    "ol-ext": "^3.0.2"
+    "ol": "^5.2.0"
   }
 }

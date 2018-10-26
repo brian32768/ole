@@ -1,3 +1,5 @@
+// FORK of boundlessgeo/ole on github. This file has been changed.
+
 import {METERS_PER_UNIT} from 'ol/proj';
 
 var utils = {

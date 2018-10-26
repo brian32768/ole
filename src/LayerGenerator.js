@@ -1,3 +1,5 @@
+// FORK of boundlessgeo/ole on github. This file has been changed.
+
 import {Attribution} from "ol/source/Source";
 import {get, Projection} from "ol/proj";
 import {TileArcGISRest, XYZ} from "ol/source";

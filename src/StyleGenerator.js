@@ -1,3 +1,5 @@
+// FORK of boundlessgeo/ole on github. This file has been changed.
+
 import {Style, Text, Fill, Icon, Stroke, Circle, RegularShape} from 'ol/style';
 import utils from './Util';
 

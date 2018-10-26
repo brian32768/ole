@@ -1,6 +1,6 @@
 # Olé
 
-This is a FORK of the Boundless project, see boundlessgeo/ole on github.
+This is a FORK of the Boundless project, the original code is at boundlessgeo/ole on github.
 
 Integration of OpenLayers 5 and Esri ArcGIS REST services.
 
@@ -62,8 +62,8 @@ Copyright 2015 Boundless Spatial, Inc.
 
 Licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
 
+NOTICE per the Apache license, just about every file in this project has been changed by brian32768.
+
 ## CHANGELOG
 
-2018-10-24 Ported to run under parcel and updated to openlayers 5.
-
-
+2018-10-24 version 0.7.0 Ported to run under parcel and updated to openlayers 5.

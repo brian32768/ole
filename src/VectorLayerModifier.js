@@ -1,3 +1,5 @@
+// FORK of boundlessgeo/ole on github. This file has been changed.
+
 import StyleGenerator from './StyleGenerator';
 import utils from './Util';
 

@@ -1,5 +1,6 @@
 // esri-styling.js ole examples
-//
+// Most of this code was extracted from the esri-styling.html file to make debugging easier.
+
 import {Map, View} from "ol";
 import {Tile as TileLayer, Vector as VectorLayer} from "ol/layer";
 import {XYZ, Vector as VectorSource} from "ol/source";
