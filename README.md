@@ -1,6 +1,7 @@
-# OlÃ©
+# Olé
 
-This is a FORK of the Boundless project, the original code is at boundlessgeo/ole on github.
+This is a FORK of the Boundless project, the original code is at
+boundlessgeo/ole on github.
 
 Integration of OpenLayers 5 and Esri ArcGIS REST services.
 
@@ -8,36 +9,39 @@ Provides the following functionality:
   * translation of ArcGIS REST API styling to OpenLayers 5 styles
   * automatic configuration of tile and image layers from the ArcGIS REST API
 
+This version is based on Parcel.
+
 ## Getting started
 
-Currently I am just testing code so there is no "getting started" or build required,
-just run "npm start" or "npm startchrome".
-
+This will install the node packages.
     npm install
+
+## Test in development mode
+
+This will run in development mode with hot module replacement.
+    npm test
+    http://127.0.0.1:1234/
+
+This will build into the release folder, dist/ole/
     npm run build
 
-## Unit tests
+## Test before release
 
-*** I don't have this working right now. ***
-    npm start
-    http://127.0.0.1:1234/test/index.html
-
-## Linting
-
-*** I don't have this working right now. ***
-   npm run lint
-
-## Examples
-
+This will run in release mode.
     npm start
     http://127.0.0.1:1234/
 
+## Publish to npmjs.com
+
+This will publish a new release to npmjs.com
+
+    cd dist/ole
+    npm publish
+
 ## Using npm
 
-There is no package on npmjs.com but you can use a git type url for instance:
-    "dependencies": {
-      "ole": "brian32768/ole#0.6.3"
-    }
+TODO -- figure out scoping and change this to "npm install @map46/ole"
+    npm install ole-brian32768
 
 ## What is supported?
 

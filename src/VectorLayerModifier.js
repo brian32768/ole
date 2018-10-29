@@ -1,9 +1,9 @@
 // FORK of boundlessgeo/ole on github. This file has been changed.
 
-import StyleGenerator from './StyleGenerator';
-import utils from './Util';
+import {StyleGenerator} from './StyleGenerator';
+import {utils} from './Util';
 
-export default class VectorLayerModifier {
+export class VectorLayerModifier {
   static modifyLayer(layerInfo, layer, mapProjection) {
     var styleGenerator = new StyleGenerator();
     var transparency = layerInfo.drawingInfo.transparency;

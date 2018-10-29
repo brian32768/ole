@@ -6,7 +6,7 @@ import {TileArcGISRest, XYZ} from "ol/source";
 import {TileGrid} from "ol/tilegrid";
 import {Tile as TileLayer} from "ol/layer";
 
-export default class LayerGenerator {
+export class LayerGenerator {
   constructor(props) {
     this._config = props.config;
     this._url = props.url;

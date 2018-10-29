@@ -1,13 +1,9 @@
 {
    "name": "ole-brian32768",
-   "version": "1.0.1",
-   "main": "dist/ole/index.js",
+   "version": "1.0.2",
+   "main": "index.js",
    "description": "Library to integrate OpenLayers 5 with Esri ArcGIS Server REST API. FORK of boundlessgeo/ole on github.",
    "scripts": {
-      "build": "babel src --out-dir dist/ole --source-maps --minified",
-      "test": "parcel service development.html --open",
-      "start": "parcel service packagetest.html --open",
-      "prepublishOnly": "npm run build"
    },
    "repository": {
       "type": "git",
@@ -26,10 +22,6 @@
    },
    "homepage": "https://github.com/brian32768/ole",
    "devDependencies": {
-      "@babel/cli": "^7.1.2",
-      "@babel/core": "^7.1.2",
-      "@babel/preset-env": "^7.1.0",
-      "lint": "^1.1.2"
    },
    "dependencies": {
       "jquery": "^3.3.1",

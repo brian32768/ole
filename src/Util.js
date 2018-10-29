@@ -2,7 +2,7 @@
 
 import {METERS_PER_UNIT} from 'ol/proj';
 
-var utils = {
+export var utils = {
   isDefinedAndNotNull(value) {
     return (value !== undefined && value !== null);
   },
@@ -14,4 +14,4 @@ var utils = {
   }
 };
 
-export default utils;
+
