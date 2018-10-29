@@ -5,13 +5,16 @@ import {Map, View} from "ol";
 import {Tile as TileLayer, Vector as VectorLayer} from "ol/layer";
 import {XYZ, Vector as VectorSource} from "ol/source";
 import {EsriJSON} from "ol/format";
-import VectorLayerModifier from '/src/VectorLayerModifier.js';
 import {tile as TileLoader} from 'ol/loadingstrategy';
 import {createXYZ as tileCreateXYZ} from 'ol/tilegrid';
 import {get as getProjection} from 'ol/proj';
 import {Attribution, defaults as defaultControls} from "ol/control";
-
 import $ from 'jquery/dist/jquery.min.js';
+
+// development version
+//import {VectorLayerModifier} from "/src";
+// package test version
+import {VectorLayerModifier} from '/dist/ole';
 
 // Expose the map service URL in the attribution, for convenience.
 const arcgis_attribution = 'Service credit: <a href="http://services.arcgisonline.com/ArcGIS/' + 'rest/services/World_Topo_Map/MapServer">ArcGIS</a>';

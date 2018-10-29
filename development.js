@@ -1,7 +1,7 @@
-// body.js olé
+// development.js olé
 //
 // Code for testing Olé, an OpenLayers extension.
-// This just loads the extension so that I can check for errors in the console.
+// This loads the extension so that I can check for compilation and load errors in the console.
 
 import { LayerGenerator, StyleGenerator, VectorLayerModifier } from "./src";
 
@@ -28,4 +28,4 @@ let layer = null;
 let mapProjection = null;
 //VectorLayerModifier.modifyLayer(layerInfo, layer, mapProjection);
 
-console.log("body.js loaded");
+console.log("development.js loaded");

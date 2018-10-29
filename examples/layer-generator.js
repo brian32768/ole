@@ -4,9 +4,12 @@
 import {Map, View} from "ol";
 import {defaults as default_controls} from "ol/control";
 import MousePosition from "ol/control/MousePosition";
-
-import {LayerGenerator} from "/src";
 import $ from 'jquery/dist/jquery.min.js';
+
+// development version
+//import {LayerGenerator, StyleGenerator} from "/src";
+// package test version
+import {LayerGenerator, StyleGenerator} from '/dist/ole';
 
 var map;
 

@@ -1,32 +1,38 @@
 {
-  "name": "ole",
-  "version": "0.7.0",
-  "description": "Library to integrate OpenLayers 5 with Esri ArcGIS Server REST API. FORK of boundlessgeo/ole on github.",
-  "main": "dist/ole.js",
-  "scripts": {
-    "build": "",
-    "start":  "parcel service index.html --open"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/brian32768/ole.git"
-  },
-  "keywords": [
-    "openlayers",
-    "esri",
-    "arcgis",
-    "rest"
-  ],
-    "author": "Boundless, with lots of updates by Brian H Wilson",
-    "license": "Apache-2.0",
-    "bugs": {
-	"url": "https://github.com/brian32768/ole/issues"
-  },
-  "homepage": "https://github.com/brian32768/ole",
-  "devDependencies": {
-    "lint": "^1.1.2"
-  },
-  "dependencies": {
-    "ol": "^5.2.0"
-  }
+   "name": "ole-brian32768",
+   "version": "1.0.0",
+   "description": "Library to integrate OpenLayers 5 with Esri ArcGIS Server REST API. FORK of boundlessgeo/ole on github.",
+   "main": "dist/ole.js",
+   "scripts": {
+      "build": "babel src --out-file dist/ole.js --source-maps --minified",
+      "test": "parcel service development.html --open",
+      "start": "parcel service packagetest.html --open",
+      "prepublish": "npm run build"
+   },
+   "repository": {
+      "type": "git",
+      "url": "https://github.com/brian32768/ole.git"
+   },
+   "keywords": [
+      "openlayers",
+      "esri",
+      "arcgis",
+      "rest"
+   ],
+   "author": "Boundless, with lots of updates by Brian H Wilson",
+   "license": "Apache-2.0",
+   "bugs": {
+      "url": "https://github.com/brian32768/ole/issues"
+   },
+   "homepage": "https://github.com/brian32768/ole",
+   "devDependencies": {
+      "@babel/cli": "^7.1.2",
+      "@babel/core": "^7.1.2",
+      "@babel/preset-env": "^7.1.0",
+      "lint": "^1.1.2"
+   },
+   "dependencies": {
+      "jquery": "^3.3.1",
+      "ol": "^5.2.0"
+   }
 }

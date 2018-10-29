@@ -50,7 +50,8 @@ export default class LayerGenerator {
     return this._projection;
   }
   _getAttribution() {
-      return new this._config.copyrightText;
+//      return new this._config.copyrightText;
+      return 'fix me need attribution text here';
   }
   createArcGISRestSource() {
     return new TileArcGISRest({
