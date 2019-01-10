@@ -1,38 +1,42 @@
 {
-   "name": "ole-brian32768",
+   "name": "@map46/ole",
    "version": "1.0.1",
-   "main": "dist/ole/index.js",
-   "description": "Library to integrate OpenLayers 5 with Esri ArcGIS Server REST API. FORK of boundlessgeo/ole on github.",
+   "description": "Library to integrate OpenLayers 5 with Esri ArcGIS Server REST API. FORK of boundlessgeo/ole.",
+   "homepage": "https://github.com/brian32768/ole#readme",
+   "keywords": [
+      "mapping",
+      "openlayers", "ol",
+      "esri", "arcgis",
+      "rest"
+   ],
+   "main": "index.html",
    "scripts": {
-      "build": "babel src --out-dir dist/ole --source-maps --minified",
-      "test": "parcel service development.html --open",
-      "start": "parcel service packagetest.html --open",
-      "prepublishOnly": "npm run build"
+      "start": "parcel service index.html --open",
+      "test": "parcel service packagetest.html --open",
+      "build": "npm run clean && npm run transpile && node tasks/prepare-package && cp README.md build/@map46/ole",
+      "clean": "rm -rf build/*",
+      "transpile": "babel src --out-dir build --source-maps"
    },
    "repository": {
       "type": "git",
       "url": "https://github.com/brian32768/ole.git"
    },
-   "keywords": [
-      "openlayers",
-      "esri",
-      "arcgis",
-      "rest"
-   ],
-   "author": "Boundless, with lots of updates by Brian H Wilson",
+   "author": "Boundless",
+   "contributors": "Brian H Wilson",
    "license": "Apache-2.0",
    "bugs": {
-      "url": "https://github.com/brian32768/ole/issues"
+      "url": "https://github.com/brian32768/ole/issues",
+      "email": "brian+ole@wildsong.biz"
    },
-   "homepage": "https://github.com/brian32768/ole",
    "devDependencies": {
-      "@babel/cli": "^7.1.2",
-      "@babel/core": "^7.1.2",
-      "@babel/preset-env": "^7.1.0",
-      "lint": "^1.1.2"
+      "@babel/cli": "^7.2.0",
+      "@babel/core": "^7.2.2",
+      "@babel/preset-env": "^7.2.3",
+      "lint": "^1.1.2",
+      "parcel-bundler": "^1.11.0"
    },
    "dependencies": {
       "jquery": "^3.3.1",
-      "ol": "^5.2.0"
+      "ol": "^5.3.0"
    }
 }
