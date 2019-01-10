@@ -1,3 +1,4 @@
+export { VERSION } from 'version';
 import {LayerGenerator} from './LayerGenerator';
 import {StyleGenerator} from './StyleGenerator';
 import {VectorLayerModifier} from './VectorLayerModifier';

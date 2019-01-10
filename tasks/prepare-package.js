@@ -2,15 +2,16 @@ const fs = require('fs');
 const path = require('path');
 const pkg = require('../package.json');
 
-const buildDir = path.resolve(__dirname, '../build/ol');
+const buildDir = path.resolve(__dirname, '../build/@map46/ole');
 
-// update the version number in util.js
-const utilPath = path.join(buildDir, 'util.js');
+// update the version number in version.js
+const utilPath = path.join(buildDir, 'version.js');
 const versionRegEx = /var VERSION = '(.*)';/g;
 const utilSrc = fs.readFileSync(utilPath, 'utf-8').replace(versionRegEx, `var VERSION = '${pkg.version}';`);
 fs.writeFileSync(utilPath, utilSrc, 'utf-8');
 
-// write out simplified package.json
+// Strip out irrelevant sections from package.json
+delete pkg.main;
 delete pkg.scripts;
 delete pkg.devDependencies;
 delete pkg.style;
