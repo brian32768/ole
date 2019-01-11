@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Olé styling example</title>
-    <link rel="stylesheet" href="/node_modules/ol/ol.css">
 </head>
 <body>
   <h1>ArcGIS REST Feature Service styling example</h1>
@@ -15,7 +14,7 @@
   <p>
     <a href="/">home</a>
   </p>
-  
+
   <b>Instructions:</b> Put the URL for an ESRI FeatureServer in here, select the layer number, and push "Connect".
   If it works you should see the map zoom to the extent specified in the FeatureServer,
   and the features should be styled to match what you'd see in ArcGIS Online (or the ESRI JSAPI).
@@ -24,9 +23,9 @@
     <label for="layer-id">Layer</label><input id="layer-id" value="0"></input>
     <button id="connect">Connect</button>
   </p>
-  
+
   <div id="map" class="map"></div>
 
-  <script src="/examples/esri-styling.js"></script>
+  <script src="esri-styling.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 // Code for testing Ol�, an OpenLayers extension.
 // This loads the extension so that I can check for compilation and load errors in the console.
 
-import { LayerGenerator, StyleGenerator, VectorLayerModifier } from "./lib";
+import { LayerGenerator, StyleGenerator, VectorLayerModifier } from "./build/@map46/ole";
 
 let props = {
     'config' : {

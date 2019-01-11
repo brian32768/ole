@@ -11,10 +11,7 @@ import {get as getProjection} from 'ol/proj';
 import {Attribution, defaults as defaultControls} from "ol/control";
 import $ from 'jquery/dist/jquery.min.js';
 
-// development version
-//import {VectorLayerModifier} from "/src";
-// package test version
-import {VectorLayerModifier} from '/dist/ole';
+import {VectorLayerModifier} from './src';
 
 // Expose the map service URL in the attribution, for convenience.
 const arcgis_attribution = 'Service credit: <a href="http://services.arcgisonline.com/ArcGIS/' + 'rest/services/World_Topo_Map/MapServer">ArcGIS</a>';
@@ -99,4 +96,3 @@ document.getElementById('connect').addEventListener('click', function() {
 	}
     }});
 });
-
